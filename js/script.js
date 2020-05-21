@@ -11,13 +11,15 @@ var formEta = document.getElementById('form_eta')
 var ticketName = document.getElementById('ticket_name');
 var ticketPrice = document.getElementById('ticket_price');
 var ticketOffer = document.getElementById('ticket_offer');
+var ticketCarriage = document.getElementById('ticket_carriage');
+
 
 // Evento quando si clicca Genera
 buttonGenera.addEventListener('click',
   function(){
+    // Calcolo biglietto ed eventuali offerte
     var formKmValue = formKm.value;
     var formEtaValue = formEta.value;
-
 
     // Calcolo prezzo biglietto intero
     var totalPrice = formKmValue * 0.21;
@@ -32,10 +34,16 @@ buttonGenera.addEventListener('click',
       ticketOfferValue = 'Sconto over 65';
     }
 
+    // Associa una Carrozza
+    randomCarriage = Math.floor(Math.random() * 11);
+
+    // Associa un codice univoco al biglietto
+
     // Compilazione elementi biglietto
-    ticketName.innerHTML = formName.value
+    ticketName.innerHTML = formName.value;
     ticketPrice.innerHTML = totalPrice.toFixed(2) + ' €';
     ticketOffer.innerHTML = ticketOfferValue;
+    ticketCarriage.innerHTML = randomCarriage;
   }
 )
 
@@ -57,5 +65,8 @@ buttonAnnulla.addEventListener('click',
 
     // Annullamento valori offerta
     ticketOffer.innerHTML = '';
+
+    // Annulla associazione di una carrozza
+    ticketCarriage.innerHTML = '';
   }
 )
