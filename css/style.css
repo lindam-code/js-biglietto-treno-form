@@ -6,6 +6,15 @@
 }
 /* Fine reset */
 
+/* Inizio regole generali */
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
+/* Fine regole generali */
+
 /* Inizio sezione form */
 .main_wrap {
   width: 100%;
