@@ -14,15 +14,15 @@
           <ul class="list_form">
             <li>
               <label>Nome Cognome</label>
-              <input type="text">
+              <input id="form_nome" type="text">
             </li>
             <li>
               <label>Km da percorrere</label>
-              <input type="number">
+              <input id="form_km" type="number">
             </li>
             <li>
               <label>Fascia d'età</label>
-              <select>
+              <select id="form_eta">
                 <option value="minorenne">Minorenne</option>
                 <option value="maggiorenne">Maggiorenne</option>
                 <option value="over65">Over 65</option>
@@ -30,8 +30,8 @@
             </li>
           </ul>
 
-          <button class="my_button">Genera</button>
-          <button class="my_button">Annulla</button>
+          <button id="button_genera" class="my_button">Genera</button>
+          <button id="button_annulla" class="my_button">Annulla</button>
 
         </div>
       </section>
@@ -40,6 +40,31 @@
       <section>
         <h2>BIGLIETTO</h2>
         <div class="biglietto">
+          <h3>DETTAGLIO PASSEGGERI</h3>
+          <div class="flex_wrapper">
+            <div class="flex_item bg_grey">
+              <h5>NOME PASSEGGERO</h5>
+              <p id="ticket_name"></p>
+            </div>
+            <div  class="flex_item">
+              <h5>Offerta</h5>
+              <p id="ticket_offer"></p>
+            </div>
+            <div class="flex_item">
+              <h5>Carrozza</h5>
+              <p id="ticket_carriage"></p>
+            </div>
+            <div class="flex_item">
+              <h5>Codice CP</h5>
+              <p id="ticket_code"></p>
+            </div>
+            <div class="flex_item">
+              <h5>Costo biglietto</h5>
+              <p id="ticket_price"></p>
+            </div>
+
+          </div>
+
 
 
         </div>
