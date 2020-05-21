@@ -9,7 +9,7 @@ var formKm = document.getElementById('form_km');
 var formEta = document.getElementById('form_eta')
 
 // ELEMENTI DEL BIGLIETTO
-var ticket = document.getElementById('hidden_container');
+var ticketContainer = document.getElementById('hidden_container');
 var ticketName = document.getElementById('ticket_name');
 var ticketPrice = document.getElementById('ticket_price');
 var ticketOffer = document.getElementById('ticket_offer');
@@ -42,7 +42,6 @@ buttonGenera.addEventListener('click',
     // Associazione un codice univoco al biglietto
     randomCode = Math.floor(Math.random() * 1000 + 1);
 
-
     // Compilazione elementi biglietto
     ticketName.innerHTML = formName.value;
     ticketPrice.innerHTML = totalPrice.toFixed(2) + ' €';
@@ -51,7 +50,7 @@ buttonGenera.addEventListener('click',
     ticketCode.innerHTML = randomCode;
 
     // Produzione biglietto
-    ticket.className = 'visible';
+    ticketContainer.className = 'visible';
   }
 )
 
@@ -81,6 +80,6 @@ buttonAnnulla.addEventListener('click',
     ticketCode.innerHTML = '';
 
     // Nascondi il biglietto annullato
-    ticket.className = 'hidden';
+    ticketContainer.className = 'hidden';
   }
 )

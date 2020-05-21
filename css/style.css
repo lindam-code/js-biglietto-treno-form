@@ -70,7 +70,7 @@ input:active, select:active {
 /* Fine sezione form */
 
 /* Inizio sezione biglietto */
-.biglietto {
+.ticket {
   background-color: #fff;
   width: 80%;
   margin: 0 auto;
@@ -87,15 +87,13 @@ h2 {
   border-bottom: 1px solid #870011;
 }
 .flex_item {
-  flex-basis: 200px;
+  flex-basis: 160px;
   padding: 10px;
 }
 .bg_grey {
   background-color: grey;
 }
-.biglietto p {
+.ticket p {
   margin-top: 25px;
 }
-
-
 /* Fine sezione biglietto */
