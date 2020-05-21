@@ -1,31 +1,32 @@
-// Bottoni del form
+// ELEMENTI DEL FORM
+// Bottoni
 var buttonGenera = document.getElementById('button_genera');
 var buttonAnnulla = document.getElementById('button_annulla');
 
-// Elementi del form
+// Input
 var formName = document.getElementById('form_name');
 var formKm = document.getElementById('form_km');
 var formEta = document.getElementById('form_eta')
 
-// Elementi biglietto
+// ELEMENTI DEL BIGLIETTO
 var ticketName = document.getElementById('ticket_name');
 var ticketPrice = document.getElementById('ticket_price');
 var ticketOffer = document.getElementById('ticket_offer');
 var ticketCarriage = document.getElementById('ticket_carriage');
+var ticketCode = document.getElementById('ticket_code');
 
-
-// Evento quando si clicca Genera
+// EVENTI QUANDO SI CLICCA IL BOTTONE GENERA
 buttonGenera.addEventListener('click',
   function(){
     // Calcolo biglietto ed eventuali offerte
     var formKmValue = formKm.value;
     var formEtaValue = formEta.value;
 
-    // Calcolo prezzo biglietto intero
+    // Prezzo biglietto intero
     var totalPrice = formKmValue * 0.21;
     var ticketOfferValue = 'Tariffa Standard';
 
-    // Calcolo prezzo biglietto scontato
+    // Prezzo biglietto scontato
     if (formEtaValue == 'minorenne') {
       totalPrice = totalPrice - (totalPrice * 20 / 100);
       ticketOfferValue = 'Sconto minorenni';
@@ -34,20 +35,23 @@ buttonGenera.addEventListener('click',
       ticketOfferValue = 'Sconto over 65';
     }
 
-    // Associa una Carrozza
-    randomCarriage = Math.floor(Math.random() * 11);
+    // Associazione di una casearrozza
+    randomCarriage = Math.floor(Math.random() * 10 + 1);
 
-    // Associa un codice univoco al biglietto
+    // Associazione un codice univoco al biglietto
+    randomCode = Math.floor(Math.random() * 1000 + 1);
+
 
     // Compilazione elementi biglietto
     ticketName.innerHTML = formName.value;
     ticketPrice.innerHTML = totalPrice.toFixed(2) + ' €';
     ticketOffer.innerHTML = ticketOfferValue;
     ticketCarriage.innerHTML = randomCarriage;
+    ticketCode.innerHTML = randomCode;
   }
 )
 
-//Evento quando si clicca annulla
+// EVENTI QUANDO SI CLICCA IL BOTTONE ANNULLA
 buttonAnnulla.addEventListener('click',
   function(){
     // Annullamento valori nome
@@ -66,7 +70,10 @@ buttonAnnulla.addEventListener('click',
     // Annullamento valori offerta
     ticketOffer.innerHTML = '';
 
-    // Annulla associazione di una carrozza
+    // Annullamento associazione di una carrozza
     ticketCarriage.innerHTML = '';
+
+    // Annullamento associazione di codice univoco al biglietto
+    ticketCode.innerHTML = '';
   }
 )
