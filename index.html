@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Biglietto Treno Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -14,15 +15,16 @@
           <ul class="list_form">
             <li>
               <label>Nome Cognome</label>
-              <input id="form_name" type="text">
+              <input id="form_name" type="text" placeholder="Nome e Cognome">
             </li>
             <li>
               <label>Km da percorrere</label>
-              <input id="form_km" type="number">
+              <input id="form_km" type="number" placeholder="Km da percorrere">
             </li>
             <li>
               <label>Fascia d'età</label>
               <select id="form_eta">
+                <option value="default">Scegli la fascia</option>
                 <option value="minorenne">Minorenne</option>
                 <option value="maggiorenne">Maggiorenne</option>
                 <option value="over65">Over 65</option>
@@ -44,25 +46,33 @@
           <div class="ticket">
             <h3>DETTAGLIO PASSEGGERI</h3>
             <div class="flex_wrapper">
-              <div class="flex_item bg_grey">
+              <div class="flex_item item_name">
                 <h5>NOME PASSEGGERO</h5>
-                <p id="ticket_name"></p>
+                <span id="ticket_name"></span>
               </div>
               <div  class="flex_item">
-                <h5>Offerta</h5>
-                <p id="ticket_offer"></p>
+                <div class="flex_ticket">
+                  <h5>Offerta</h5>
+                  <span id="ticket_offer"></span>
+                </div>
               </div>
               <div class="flex_item">
-                <h5>Carrozza</h5>
-                <p id="ticket_carriage"></p>
+                <div class="flex_ticket">
+                  <h5>Carrozza</h5>
+                  <span id="ticket_carriage"></span>
+                </div>
               </div>
               <div class="flex_item">
-                <h5>Codice CP</h5>
-                <p id="ticket_code"></p>
+                <div class="flex_ticket">
+                  <h5>Codice CP</h5>
+                  <span id="ticket_code"></span>
+                </div>
               </div>
               <div class="flex_item">
-                <h5>Costo biglietto</h5>
-                <p id="ticket_price"></p>
+                <div class="flex_ticket">
+                  <h5>Costo biglietto</h5>
+                  <span id="ticket_price"></span>
+                </div>
               </div>
             </div>
           </div>

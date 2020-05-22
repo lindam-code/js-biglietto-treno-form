@@ -57,26 +57,16 @@ buttonGenera.addEventListener('click',
 // EVENTI QUANDO SI CLICCA IL BOTTONE ANNULLA
 buttonAnnulla.addEventListener('click',
   function(){
-    // Annullamento valori nome
+    // Annullemanto dei valori di input
     formName.value = '';
-    ticketName.innerHTML ='';
-
-    // Annullamento valori km
     formKm.value = '';
+    formEta.value = 'default';
 
-    // Annullamento valori prezzo
+    // Annullamento dei valori nel biglietto
+    ticketName.innerHTML ='';
     ticketPrice.innerHTML = '';
-
-    // Annulamento valori eta
-    formEta.value = 'minorenne';
-
-    // Annullamento valori offerta
     ticketOffer.innerHTML = '';
-
-    // Annullamento associazione di una carrozza
     ticketCarriage.innerHTML = '';
-
-    // Annullamento associazione di codice univoco al biglietto
     ticketCode.innerHTML = '';
 
     // Nascondi il biglietto annullato
