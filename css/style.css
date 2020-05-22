@@ -81,6 +81,22 @@ input:focus::placeholder {
 }
 /* Fine sezione form */
 
+/* Inizio messaggio di errore */
+.error {
+  background-color: #fff;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 25px;
+  margin-top: 30px;
+  color: green;
+  font-size: 35px;
+}
+.error span {
+  background-color: yellow;
+}
+/* Fine messaggio di errore */
+
 /* Inizio sezione biglietto */
 .ticket {
   background-color: #fff;

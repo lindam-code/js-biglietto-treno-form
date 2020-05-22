@@ -16,41 +16,55 @@ var ticketOffer = document.getElementById('ticket_offer');
 var ticketCarriage = document.getElementById('ticket_carriage');
 var ticketCode = document.getElementById('ticket_code');
 
+// MESSAGGIO ERRORE
+var errorMessage = document.getElementById('error_container');
+
 // EVENTI QUANDO SI CLICCA IL BOTTONE GENERA
 buttonGenera.addEventListener('click',
   function(){
-    // Calcolo biglietto ed eventuali offerte
-    var formKmValue = formKm.value;
+    // Elementi per calcolo biglietto ed eventuali offerte
+    var formKmValue = parseInt(formKm.value);
     var formEtaValue = formEta.value;
+    var nameValue = formName.value;
 
-    // Prezzo biglietto intero
-    var totalPrice = formKmValue * 0.21;
-    var ticketOfferValue = 'Tariffa Standard';
+    if (isNaN(formKmValue) || nameValue.length == 0 || formEtaValue == 'default')   {
+      errorMessage.className = 'visible';
+      ticketContainer.className = 'hidden';
+    } else {
 
-    // Prezzo biglietto scontato
-    if (formEtaValue == 'minorenne') {
-      totalPrice = totalPrice - (totalPrice * 20 / 100);
-      ticketOfferValue = 'Sconto minorenni';
-    } else if (formEtaValue == 'over65') {
-      totalPrice = totalPrice - (totalPrice * 40 / 100);
-      ticketOfferValue = 'Sconto over 65';
+      // Nascondo messaggio di errore
+      errorMessage.className = 'hidden';
+
+      // Prezzo biglietto intero
+      var totalPrice = formKmValue * 0.21;
+      var ticketOfferValue = 'Tariffa Standard';
+
+      // Prezzo biglietto scontato
+      if (formEtaValue == 'minorenne') {
+        totalPrice = totalPrice - (totalPrice * 20 / 100);
+        ticketOfferValue = 'Sconto minorenni';
+      } else if (formEtaValue == 'over65') {
+        totalPrice = totalPrice - (totalPrice * 40 / 100);
+        ticketOfferValue = 'Sconto over 65';
+      }
+
+      // Associazione di un numero carrozza
+      randomCarriage = Math.floor(Math.random() * 10 + 1);
+
+      // Associazione un codice univoco al biglietto
+      randomCode = Math.floor(Math.random() * 1000 + 1);
+
+      // Compilazione elementi biglietto
+      ticketName.innerHTML = formName.value;
+      ticketPrice.innerHTML = totalPrice.toFixed(2) + ' €';
+      ticketOffer.innerHTML = ticketOfferValue;
+      ticketCarriage.innerHTML = randomCarriage;
+      ticketCode.innerHTML = randomCode;
+
+      // Produzione biglietto
+      ticketContainer.className = 'visible';
     }
 
-    // Associazione di una casearrozza
-    randomCarriage = Math.floor(Math.random() * 10 + 1);
-
-    // Associazione un codice univoco al biglietto
-    randomCode = Math.floor(Math.random() * 1000 + 1);
-
-    // Compilazione elementi biglietto
-    ticketName.innerHTML = formName.value;
-    ticketPrice.innerHTML = totalPrice.toFixed(2) + ' €';
-    ticketOffer.innerHTML = ticketOfferValue;
-    ticketCarriage.innerHTML = randomCarriage;
-    ticketCode.innerHTML = randomCode;
-
-    // Produzione biglietto
-    ticketContainer.className = 'visible';
   }
 )
 
@@ -71,5 +85,8 @@ buttonAnnulla.addEventListener('click',
 
     // Nascondi il biglietto annullato
     ticketContainer.className = 'hidden';
+
+    // Nascondi messaggio errore
+    errorMessage.className = 'hidden';
   }
 )
